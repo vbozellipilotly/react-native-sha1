@@ -35,7 +35,7 @@ public class Sha1Module extends ReactContextBaseJavaModule {
           md = MessageDigest.getInstance("SHA-1");
           md.update(toHash.getBytes("UTF-8"));
           byte[] digest = md.digest();
-          String hash = String.format("%064x", new java.math.BigInteger(1, digest));
+          String hash = String.format("%02X", new java.math.BigInteger(1, digest));
           promise.resolve(hash);
 
       } catch (NoSuchAlgorithmException e) {
