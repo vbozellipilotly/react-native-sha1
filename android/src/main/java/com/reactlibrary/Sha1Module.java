@@ -1,4 +1,4 @@
-package com.sha256lib;
+package com.sha1lib;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -14,25 +14,25 @@ import java.security.NoSuchAlgorithmException;
 
 import java.util.UUID;
 
-public class Sha256Module extends ReactContextBaseJavaModule {
+public class Sha1Module extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
 
-  public Sha256Module(ReactApplicationContext reactContext) {
+  public Sha1Module(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }
 
   @Override
   public String getName() {
-    return "sha256Lib";
+    return "sha1Lib";
   }
 
   @ReactMethod
-  public void sha256(final String toHash, Promise promise) {
+  public void sha1(final String toHash, Promise promise) {
       MessageDigest md = null;
       try {
-          md = MessageDigest.getInstance("SHA-256");
+          md = MessageDigest.getInstance("SHA-1");
           md.update(toHash.getBytes("UTF-8"));
           byte[] digest = md.digest();
           String hash = String.format("%064x", new java.math.BigInteger(1, digest));
@@ -40,10 +40,10 @@ public class Sha256Module extends ReactContextBaseJavaModule {
 
       } catch (NoSuchAlgorithmException e) {
           e.printStackTrace();
-          promise.reject("sha256", e.getMessage());
+          promise.reject("sha1", e.getMessage());
       } catch (UnsupportedEncodingException e) {
           e.printStackTrace();
-          promise.reject("sha256", e.getMessage());
+          promise.reject("sha1", e.getMessage());
       }
   }
 

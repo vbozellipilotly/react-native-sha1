@@ -1,37 +1,37 @@
 //
-//  sha256.m
-//  react-native-sha256
+//  sha1.m
+//  react-native-sha1
 //
 //  Created by Hagen Hübel on 18/05/2017.
 //  Copyright © 2017 ITinance GmbH. All rights reserved.
 //
 
-#import "sha256.h"
+#import "sha1.h"
 
 #import <React/RCTUtils.h>
 #import <React/RCTImageLoader.h>
 
 #include <CommonCrypto/CommonDigest.h>
 
-@implementation sha256Lib
+@implementation sha1Lib
 
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(sha256: (NSString *) data
+RCT_EXPORT_METHOD(sha1: (NSString *) data
                   resolver: (RCTPromiseResolveBlock) resolve
                   rejecter: (RCTPromiseRejectBlock) reject)
 
 {
     const char* str = [data UTF8String];
-    unsigned char result[CC_SHA256_DIGEST_LENGTH];
-    CC_SHA256(str, strlen(str), result);
-    
-    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH*2];
-    for(int i = 0; i<CC_SHA256_DIGEST_LENGTH; i++)
+    unsigned char result[CC_SHA1_DIGEST_LENGTH];
+    CC_SHA1(str, strlen(str), result);
+
+    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH*2];
+    for(int i = 0; i<CC_SHA1_DIGEST_LENGTH; i++)
     {
         [ret appendFormat:@"%02x",result[i]];
     }
-    
+
     resolve(ret);
 }
 

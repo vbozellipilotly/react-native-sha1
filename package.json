@@ -1,16 +1,16 @@
 {
-  "name": "react-native-sha256",
+  "name": "react-native-sha1",
   "version": "1.2.3",
-  "description": "Native sha256 react-native",
-  "main": "sha256.js",
+  "description": "Native sha1 react-native",
+  "main": "sha1.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "flow": "flow; test $? -eq 0 -o $? -eq 2"
   },
-  "homepage": "https://github.com/itinance/react-native-sha256",
+  "homepage": "https://github.com/itinance/react-native-sha1",
   "repository": {
     "type": "git",
-    "url": "git@github.com:itinance/react-native-sha256.git"
+    "url": "git@github.com:marconett/react-native-sha1.git"
   },
   "keywords": [
     "react-component",
@@ -18,7 +18,7 @@
     "ios",
     "android",
     "hash",
-    "sha256"
+    "sha1"
   ],
   "author": "Hagen Huebel <hhuebel@itinance.com> (hhuebel@itinance.com)",
   "license": "MIT",
